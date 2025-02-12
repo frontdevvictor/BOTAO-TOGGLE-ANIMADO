@@ -78,3 +78,62 @@ body {
         calc(var(--width) * 0) calc(var(--width) * 0.025) calc(var(--width) * 0.025) 0 hsl(210 10% 10% / 0.65) inset;
     border-radius: 100vh;
 }
+
+.toglle__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    border-radius: 100vh;
+    display: block;
+    clip-path: insert( 0 0 0 0 round 100vh);
+    container-type: inline-size;
+}
+
+.toggle__backdrop {
+    overflow: visible !important;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        transition: transform var(--speed) var(--easing);
+        translate: 0 calc(
+            var(--dark, 0) * (100% - (3 / 8 * var(--width)))
+        );
+}
+[data-dark-mode=true] {
+    --bg: hsl(208, 31%, 12%);
+    --color: hsl(219 30% 98%);
+    color-scheme: dark only;
+}
+[aria-pressed=false] .toggle__backdrop:last-of-type {
+    transition-timing-function: cubic-bezier(.2,-0.6,.7,1.6);
+}
+[aria-pressed=false] .stors path {
+    transition-delay: 0s;
+}
+
+.stars path {
+    transform-box: fill-box;
+    transform-origin: 25% 50%;
+    scale: calc(0.25 +(var(--dark, 0) * 0.75));
+    transition: scale var(--speed) calc(var(--speed) * 0.5) var(--easing);
+}
+
+.toggle__indicator {
+        height: 100%;
+        aspect-ratio: 1;
+        border-radius: 0%;
+        display: grid;
+        place-items: center;
+        padding: 3%;
+    transition: translate var(--speed) var(--slide-ease);       
+    translate: calc(var(--dark, 0) * (100cqi - 100%)) 0;
+}
+
+.pilot-bear {
+    position: absolute;
+    width: 25%;
+}

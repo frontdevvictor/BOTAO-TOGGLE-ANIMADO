@@ -137,3 +137,13 @@ body {
     position: absolute;
     width: 25%;
 }
+
+.toggle__star {
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: relative;
+    transition: translate var(--speed) var(--easing);
+    translate: calc((var(--dark, 0) * -10%) + 5%) 0;
+/* translate: calc((var(--dark, 0) * -10%) + 5%) 0; */
+}

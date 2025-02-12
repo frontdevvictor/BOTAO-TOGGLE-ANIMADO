@@ -19,3 +19,52 @@ l*,
         --bear-speed: 10s;
     --color: hsl(219 30% 20%);
 }
+
+html {
+    color-scheme: light only;
+}
+
+body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+        background: var(--bg);
+    transition: background var(--speed) var(--easing);
+        font-family: sans-serif, system-ui;
+}
+
+.toggle__backdrop:firts-of-type .clouds path:first-of-type {
+    fill: var(--ray);
+}
+
+.toggle {
+    -webkit-top-highlight-color: transparent;
+        width: var(--width);
+    /* random attempts at tackling the overflow ios issue */
+    z-index: 10;
+    will-change: transform;
+    isolation: isolate;
+    transform: translate3d(0, 0, 0);
+    /* End of workaround city   */
+       aspect-ratio: var(--ar);
+       border-radius: 100vh;
+       border: 0;
+       position: relative;
+       padding: 0;
+       overflow: hidden;
+       cursor: pointer;
+       transition: background var(--speed) var(--easing);
+       --sky: hsl(204, 53%, 47%);
+       --night: hsl(229, 25%, 16%);
+       outline-color: transparent;
+       background: hsl(
+            calc(284 + (var(--dark, 0) * 25))
+            calc((53 - (var(--dark, 0) * 28)) * 1%)
+            calc((47 - (var(--dark, 0) * 31)) * 1%)
+       );
+       box-shadow: 
+            calc(var(--width) * 0) calc(var(--width)* 0.02) calc(var(--width) * 0.01) calc(var(--width) * -0.0025) hsl(210 10% 100% / 0.95),
+            calc(var(--width) * 0) calc(var(--width) * -0.02) calc(var(--width) * 0.01) calc(var(--width) -0.0025) hsl(210 10% 10% / 0.2),
+            calc()
+}

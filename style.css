@@ -346,3 +346,21 @@ body {
     color: var(--color);
     transition: color var(--speed) var(--easing);
 }
+
+[type=checkbox] {
+    accent-color: var(--color);
+    transition: accent-color var(--speed) var(--easing);
+}
+
+.bear-link {
+        color: canvasText;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        width: 48px;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        opacity: 0.8;
+    transition: color var(--speed);
+}

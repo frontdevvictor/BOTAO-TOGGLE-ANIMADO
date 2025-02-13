@@ -5,18 +5,18 @@ l*,
 }
 
 :root {
-        --slide-ease: cubic-bezier(.4,-0.4,6,1.3);
-        /* --slide-ease: cubic-bezier(.8,-0.3,.2,1.3); */
-        --easing: var(--slide-ease);
-        --speed: 0.5s;
-        --width: clamp(200px, 45vmin, 500px);
-        --ar: 8 / 3;
-        --ray: hsl(0 0% 100% / 0.5);
-        --sun: hsl(47, 91%, 58%);
-        --moon: hsl(212, 13%, 82%);
-        --crater: hsl(219, 30%, 88%);
-        --bg: hsl(219, 30%, 88%);
-        --bear-speed: 10s;
+    --slide-ease: cubic-bezier(.4,-0.4,6,1.3);
+    /* --slide-ease: cubic-bezier(.8,-0.3,.2,1.3); */
+    --easing: var(--slide-ease);
+    --speed: 0.5s;
+    --width: clamp(200px, 45vmin, 500px);
+    --ar: 8 / 3;
+    --ray: hsl(0 0% 100% / 0.5);
+    --sun: hsl(47, 91%, 58%);
+    --moon: hsl(212, 13%, 82%);
+    --crater: hsl(219, 30%, 88%);
+    --bg: hsl(219, 30%, 88%);
+    --bear-speed: 10s;
     --color: hsl(219 30% 20%);
 }
 
@@ -25,48 +25,48 @@ html {
 }
 
 body {
-        display: grid;
-        place-items: center;
-        min-height: 100vh;
-        overflow: hidden;
-        background: var(--bg);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
     transition: background var(--speed) var(--easing);
-        font-family: sans-serif, system-ui;
+    font-family: sans-serif, system-ui;
 }
 
-.toggle__backdrop:firts-of-type .clouds path:first-of-type {
+.toggle__backdrop:first-of-type .clouds path:first-of-type {
     fill: var(--ray);
 }
 
 .toggle {
     -webkit-top-highlight-color: transparent;
-        width: var(--width);
+    width: var(--width);
     /* random attempts at tackling the overflow ios issue */
     z-index: 10;
     will-change: transform;
     isolation: isolate;
     transform: translate3d(0, 0, 0);
     /* End of workaround city   */
-       aspect-ratio: var(--ar);
-       border-radius: 100vh;
-       border: 0;
-       position: relative;
-       padding: 0;
-       overflow: hidden;
-       cursor: pointer;
-       transition: background var(--speed) var(--easing);
-       --sky: hsl(204, 53%, 47%);
-       --night: hsl(229, 25%, 16%);
-       outline-color: transparent;
-       background: hsl(
-            calc(284 + (var(--dark, 0) * 25))
-            calc((53 - (var(--dark, 0) * 28)) * 1%)
-            calc((47 - (var(--dark, 0) * 31)) * 1%)
-       );
-       box-shadow: 
-            calc(var(--width) * 0) calc(var(--width)* 0.02) calc(var(--width) * 0.01) calc(var(--width) * -0.0025) hsl(210 10% 100% / 0.95),
-            calc(var(--width) * 0) calc(var(--width) * -0.02) calc(var(--width) * 0.01) calc(var(--width) -0.0025) hsl(210 10% 10% / 0.2),
-            calc(var(--width) * 0) calc(var(--width) * 0.02) calc(var(--width) * 0.5) 0 hsl(210 10% 100% / 0.15);
+    aspect-ratio: var(--ar);
+    border-radius: 100vh;
+    border: 0;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background var(--speed) var(--easing);
+    --sky: hsl(204, 53%, 47%);
+    --night: hsl(229, 25%, 16%);
+    outline-color: transparent;
+    background: hsl(
+        calc(284 + (var(--dark, 0) * 25))
+        calc((53 - (var(--dark, 0) * 28)) * 1%)
+        calc((47 - (var(--dark, 0) * 31)) * 1%)
+    );
+    box-shadow: 
+        calc(var(--width) * 0) calc(var(--width)* 0.02) calc(var(--width) * 0.01) calc(var(--width) * -0.0025) hsl(210 10% 100% / 0.95),
+        calc(var(--width) * 0) calc(var(--width) * -0.02) calc(var(--width) * 0.01) calc(var(--width) -0.0025) hsl(210 10% 10% / 0.2),
+        calc(var(--width) * 0) calc(var(--width) * 0.02) calc(var(--width) * 0.5) 0 hsl(210 10% 100% / 0.15);
 }
 
 .toggle:after {
@@ -79,7 +79,7 @@ body {
     border-radius: 100vh;
 }
 
-.toglle__content {
+.toggle__content {
     position: absolute;
     top: 0;
     left: 0;
@@ -88,30 +88,33 @@ body {
     overflow: hidden;
     border-radius: 100vh;
     display: block;
-    clip-path: insert( 0 0 0 0 round 100vh);
+    clip-path: inset(0 0 0 0 round 100vh);
     container-type: inline-size;
 }
 
 .toggle__backdrop {
     overflow: visible !important;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        transition: transform var(--speed) var(--easing);
-        translate: 0 calc(
-            var(--dark, 0) * (100% - (3 / 8 * var(--width)))
-        );
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    transition: transform var(--speed) var(--easing);
+    translate: 0 calc(
+        var(--dark, 0) * (100% - (3 / 8 * var(--width)))
+    );
 }
+
 [data-dark-mode=true] {
     --bg: hsl(208, 31%, 12%);
     --color: hsl(219 30% 98%);
     color-scheme: dark only;
 }
+
 [aria-pressed=false] .toggle__backdrop:last-of-type {
     transition-timing-function: cubic-bezier(.2,-0.6,.7,1.6);
 }
-[aria-pressed=false] .stors path {
+
+[aria-pressed=false] .stars path {
     transition-delay: 0s;
 }
 
@@ -123,12 +126,12 @@ body {
 }
 
 .toggle__indicator {
-        height: 100%;
-        aspect-ratio: 1;
-        border-radius: 0%;
-        display: grid;
-        place-items: center;
-        padding: 3%;
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 0%;
+    display: grid;
+    place-items: center;
+    padding: 3%;
     transition: translate var(--speed) var(--slide-ease);       
     translate: calc(var(--dark, 0) * (100cqi - 100%)) 0;
 }
@@ -145,7 +148,6 @@ body {
     position: relative;
     transition: translate var(--speed) var(--easing);
     translate: calc((var(--dark, 0) * -10%) + 5%) 0;
-/* translate: calc((var(--dark, 0) * -10%) + 5%) 0; */  
 }
 
 .sun {
@@ -154,20 +156,21 @@ body {
     inset: 0;
     border-radius: 50%;
     overflow: hidden;
-    box-sizing: 
+    box-shadow: 
         calc(var(--width) * 0.01) calc(var(--width) * 0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 100% / 0.95) inset,
         calc(var(--width) * -0.01) calc(var(--width) * -0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 20% / 0.5) inset;
 }
+
 .moon {
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background: var(--moon);
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--moon);
     transition: translate var(--speed) ease-in-out;    
     translate: calc((100 - (var(--dark, 0) * 100)) * 1%) 0%;
-	box-shadow:
-		calc(var(--width) * 0.01) calc(var(--width) * 0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 100% / 0.95) inset,
-		calc(var(--width) * -0.01) calc(var(--width) * -0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 10% / 0.95) inset;
+    box-shadow:
+        calc(var(--width) * 0.01) calc(var(--width) * 0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 100% / 0.95) inset,
+        calc(var(--width) * -0.01) calc(var(--width) * -0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 10% / 0.95) inset;
 }
 
 .moon__crater {
@@ -188,25 +191,26 @@ body {
     --x: 40;
     --y: 15;
 }
+
 .moon__crater:nth-of-type(2) {
     --size: 20;
     --x: 65;
     --y: 50;
 }
+
 .moon__crater:nth-of-type(3) {
     --size: 34;
     --x: 18;
     --y: 40;
 }
 
-.toogle__star:before {
+.toggle__star:before {
     content: "";
     z-index: -1;
     width: 356%;
     background: 
         radial-gradient(hsl(0 0% 100% / 0.25) 40%, transparent 40.5%),
-        radial-gradient(hsl(0 0% 100% / 0.25) 56%, transparent 56.5%)
-     hsl(0 0% 100% / 0.25);
+        radial-gradient(hsl(0 0% 100% / 0.25) 56%, transparent 56.5%);
     border-radius: 50%;
     aspect-ratio: 1;
     position: absolute;
@@ -214,10 +218,8 @@ body {
     left: 50%;
     transition: translate var(--speed) var(--easing);
     translate: calc(
-        (50 - (var(--dark, 0) * 4)) *
-        -1% 
-    )
-    -50%;
+        (50 - (var(--dark, 0) * 4)) * -1%
+    ) -50%;
 }
 
 .toggle__star:after {
@@ -249,6 +251,7 @@ body {
     transform-box: fill-box;
     transform-origin: 50% 50%;
 }
+
 .stars g:nth-of-type(3) {
     animation: twinkle 4s -2s infinite;
 }
@@ -353,14 +356,14 @@ body {
 }
 
 .bear-link {
-        color: canvasText;
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        width: 48px;
-        aspect-ratio: 1;
-        display: grid;
-        place-items: center;
-        opacity: 0.8;
+    color: canvasText;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: 48px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    opacity: 0.8;
     transition: color var(--speed);
 }

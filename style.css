@@ -145,5 +145,77 @@ body {
     position: relative;
     transition: translate var(--speed) var(--easing);
     translate: calc((var(--dark, 0) * -10%) + 5%) 0;
-/* translate: calc((var(--dark, 0) * -10%) + 5%) 0; */
+/* translate: calc((var(--dark, 0) * -10%) + 5%) 0; */  
+}
+
+.sun {
+    background: var(--sun);
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: 
+        calc(var(--width) * 0.01) calc(var(--width) * 0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 100% / 0.95) inset,
+        calc(var(--width) * -0.01) calc(var(--width) * -0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 20% / 0.5) inset;
+}
+.moon {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: var(--moon);
+    transition: translate var(--speed) ease-in-out;    
+    translate: calc((100 - (var(--dark, 0) * 100)) * 1%) 0%;
+	box-shadow:
+		calc(var(--width) * 0.01) calc(var(--width) * 0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 100% / 0.95) inset,
+		calc(var(--width) * -0.01) calc(var(--width) * -0.01) calc(var(--width) * 0.02) 0 hsl(210 10% 10% / 0.95) inset;
+}
+
+.moon__crater {
+    position: absolute;
+    background: var(--crater);
+    border-radius: 50%;
+    width: calc(var(--size, 10%) * 1%);
+    aspect-ratio: 1;
+    left: calc(var(--x) * 1%);
+    top: calc(var(--y) * 1%);
+    box-shadow: 
+        calc(var(--width) * 0.01) calc(var(--width) * 0.01) calc(var(--width) * 0.01) 0 hsl(210 10% 6% / 0.25) inset,
+        0 calc(var(--width) * 0.005) calc(var(--width) * 0.01) 0 hsl(210 10% 100% / 0.25);
+}
+
+.moon__crater:nth-of-type(1) {
+    --size: 18;
+    --x: 40;
+    --y: 15;
+}
+.moon__crater:nth-of-type(2) {
+    --size: 20;
+    --x: 65;
+    --y: 50;
+}
+.moon__crater:nth-of-type(3) {
+    --size: 34;
+    --x: 18;
+    --y: 40;
+}
+
+.toogle__star:before {
+    content: "";
+    z-index: -1;
+    width: 356%;
+    background: 
+        radial-gradient(hsl(0 0% 100% / 0.25) 40%, transparent 40.5%),
+        radial-gradient(hsl(0 0% 100% / 0.25) 56%, transparent 56.5%)
+     hsl(0 0% 100% / 0.25);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: translate var(--speed) var(--easing);
+    translate: calc(
+        (50 - (var(--dark, 0) * 4)) *
+        -1% 
+    )
+    -50%;
 }
